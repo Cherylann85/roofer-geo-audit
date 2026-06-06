@@ -1,3 +1,30 @@
+
+where :Paste the full index.html template with the roofer code inside it
+
+17:44
+Here's the complete file ready to paste in one go — select all in the GitHub editor, delete, then paste this entire block:
+
+
+index.html — Roofer Geo Audit (Complete file ready to paste)
+Code 
+The complete file is in the artifact above — everything in one block ready to paste.
+
+Now do this:
+
+Click the Copy button on the roofer_index_html artifact
+Go to github.com/Cherylann85/roofer-geo-audit/edit/main/html1
+Ctrl+A → Delete all existing content
+Change the filename from html1 to index.html
+Paste the copied code
+Click Commit changes
+Then straight to Vercel to deploy. Ready?
+
+
+
+
+
+
+Claude is AI and can make mistakes. Please double-check responses.
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +40,8 @@
 <body>
   <div id="root"></div>
   <script type="text/babel">
-    
-import { useState, useEffect } from "react";
+
+const { useState, useEffect } = React;
 
 const WEBHOOK = "https://geo-audit-backend-1.onrender.com/webhook";
 const ORANGE = "#FF6B2B";
@@ -62,12 +89,12 @@ const FAQS = [
   { q: "What happens after I receive the report?", a: "The report is yours to keep and act on yourself. If you'd like expert help implementing the recommendations, you can book a free 20-minute consultation with Bright Box Solutions — but there's absolutely no obligation." },
 ];
 
-export default function App() {
+function App() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [website, setWebsite] = useState("");
   const [phone, setPhone] = useState("");
-  const [status, setStatus] = useState("idle"); // idle | sending | done | error
+  const [status, setStatus] = useState("idle");
   const [openFaq, setOpenFaq] = useState(null);
 
   useEffect(() => {
@@ -87,205 +114,177 @@ export default function App() {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: website, email, name, phone, route: "Roofer Geo Audit — £49" })
+        body: JSON.stringify({ url: website, email, name, phone, route: "Roofer Geo Audit — Free" })
       });
-      setStatus("done");
-    } catch(e) {
-      setStatus("done"); // fire and forget — assume success
-    }
+    } catch(e) {}
+    setStatus("done");
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: SLATE, position: "relative", overflow: "hidden" }}>
+    React.createElement("div", { style: { minHeight: "100vh", background: SLATE, position: "relative", overflow: "hidden" } },
+      React.createElement("div", { className: "orb", style: { width: 600, height: 600, background: "radial-gradient(circle,rgba(255,107,43,0.15) 0%,transparent 70%)", top: -100, right: -150 } }),
+      React.createElement("div", { className: "orb", style: { width: 400, height: 400, background: "radial-gradient(circle,rgba(255,107,43,0.08) 0%,transparent 70%)", bottom: 200, left: -100 } }),
 
-      {/* Background orbs */}
-      <div className="orb" style={{ width: 600, height: 600, background: `radial-gradient(circle,rgba(255,107,43,0.15) 0%,transparent 70%)`, top: -100, right: -150 }} />
-      <div className="orb" style={{ width: 400, height: 400, background: `radial-gradient(circle,rgba(255,107,43,0.08) 0%,transparent 70%)`, bottom: 200, left: -100 }} />
+      React.createElement("div", { style: { position: "relative", zIndex: 1, maxWidth: 680, margin: "0 auto", padding: "0 20px 80px" } },
 
-      <div style={{ position: "relative", zIndex: 1, maxWidth: 680, margin: "0 auto", padding: "0 20px 80px" }}>
+        // HEADER
+        React.createElement("div", { style: { padding: "24px 0 0", display: "flex", alignItems: "center", justifyContent: "space-between" } },
+          React.createElement("div", { style: { fontFamily: "'Playfair Display',serif", fontWeight: 700, fontSize: 15, color: "#fff", letterSpacing: "0.12em" } }, "BRIGHT BOX",
+            React.createElement("div", { style: { height: 1, background: "#fff", marginTop: 2, opacity: 0.5 } })
+          ),
+          React.createElement("div", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 10, color: "rgba(255,255,255,0.3)", letterSpacing: "0.12em", textTransform: "uppercase" } }, "ISO AI Management Practitioners")
+        ),
 
-        {/* ── HEADER ── */}
-        <div style={{ padding: "24px 0 0", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <div style={{ fontFamily: "'Playfair Display',serif", fontWeight: 700, fontSize: 15, color: "#fff", letterSpacing: "0.12em" }}>
-            BRIGHT BOX
-            <div style={{ height: 1, background: "#fff", marginTop: 2, opacity: 0.5 }} />
-          </div>
-          <div style={{ fontFamily: "'Courier Prime',monospace", fontSize: 10, color: "rgba(255,255,255,0.3)", letterSpacing: "0.12em", textTransform: "uppercase" }}>
-            ISO AI Management Practitioners
-          </div>
-        </div>
+        // HERO
+        React.createElement("div", { className: "fade-in", style: { paddingTop: 56, paddingBottom: 48 } },
+          React.createElement("div", { style: { display: "inline-flex", alignItems: "center", gap: 8, border: "1px solid rgba(255,107,43,0.4)", borderRadius: 99, padding: "5px 14px", marginBottom: 24 } },
+            React.createElement("span", { className: "pulse", style: { width: 6, height: 6, borderRadius: "50%", background: ORANGE, display: "inline-block", boxShadow: "0 0 8px " + ORANGE } }),
+            React.createElement("span", { style: { fontSize: 10, fontWeight: 700, color: ORANGE, letterSpacing: "0.15em", textTransform: "uppercase" } }, "Free report for UK roofers — limited availability")
+          ),
+          React.createElement("h1", { className: "serif", style: { fontSize: "clamp(32px,6vw,52px)", fontWeight: 900, color: "#fff", lineHeight: 1.1, marginBottom: 20, letterSpacing: "-0.02em" } },
+            "Is Your Roofing Business ",
+            React.createElement("span", { style: { color: ORANGE, fontStyle: "italic" } }, "Invisible"),
+            " to AI Search?"
+          ),
+          React.createElement("p", { style: { fontSize: 15, color: "rgba(255,255,255,0.55)", lineHeight: 1.8, marginBottom: 16, fontFamily: "'Courier Prime',monospace" } },
+            "When a homeowner asks ChatGPT or Google AI ",
+            React.createElement("em", { style: { color: "rgba(255,255,255,0.8)" } }, '"find me a reliable roofer near me"'),
+            " — does your business come up? Most roofers don't know. We'll tell you — completely free."
+          ),
+          React.createElement("div", { style: { border: "1px solid rgba(255,107,43,0.3)", background: "rgba(255,107,43,0.06)", padding: "14px 18px", marginBottom: 28 } },
+            React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 12, color: "rgba(255,255,255,0.7)", lineHeight: 1.7 } },
+              "⚡ ",
+              React.createElement("span", { style: { color: "#fff" } }, "No payment. No credit card. No catch."),
+              " Enter your website URL below and we'll send you a full professional AI visibility report within 24 hours — completely free."
+            )
+          ),
+          React.createElement("div", { style: { display: "flex", gap: 6, flexWrap: "wrap" } },
+            ["✅ 100% free", "✅ No sales call", "✅ Plain English report", "✅ 24-hour delivery", "✅ Keep the report forever"].map(t =>
+              React.createElement("span", { key: t, style: { fontFamily: "'Courier Prime',monospace", fontSize: 11, color: "rgba(255,255,255,0.5)", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", padding: "4px 10px" } }, t)
+            )
+          )
+        ),
 
-        {/* ── HERO ── */}
-        <div className="fade-in" style={{ paddingTop: 56, paddingBottom: 48 }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, border: `1px solid rgba(255,107,43,0.4)`, borderRadius: 99, padding: "5px 14px", marginBottom: 24 }}>
-            <span className="pulse" style={{ width: 6, height: 6, borderRadius: "50%", background: ORANGE, display: "inline-block", boxShadow: `0 0 8px ${ORANGE}` }} />
-            <span style={{ fontSize: 10, fontWeight: 700, color: ORANGE, letterSpacing: "0.15em", textTransform: "uppercase" }}>Free report for UK roofers — limited availability</span>
-          </div>
+        // STATS
+        React.createElement("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 48 } },
+          STATS.map(({ number, label }) =>
+            React.createElement("div", { key: label, style: { background: SLATE_CARD, border: "1px solid " + SLATE_BDR, padding: "20px 18px" } },
+              React.createElement("p", { className: "serif", style: { fontSize: 32, fontWeight: 900, color: ORANGE, marginBottom: 6, lineHeight: 1 } }, number),
+              React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 11, color: "rgba(255,255,255,0.45)", lineHeight: 1.55 } }, label)
+            )
+          )
+        ),
 
-          <h1 className="serif" style={{ fontSize: "clamp(32px,6vw,52px)", fontWeight: 900, color: "#fff", lineHeight: 1.1, marginBottom: 20, letterSpacing: "-0.02em" }}>
-            Is Your Roofing Business{" "}
-            <span style={{ color: ORANGE, fontStyle: "italic" }}>Invisible</span>{" "}
-            to AI Search?
-          </h1>
+        // FORM
+        status === "done" ?
+          React.createElement("div", { className: "fade-in", style: { background: SLATE_CARD, border: "1px solid rgba(255,107,43,0.4)", padding: "40px 32px", textAlign: "center", marginBottom: 48 } },
+            React.createElement("div", { style: { fontSize: 48, marginBottom: 16 } }, "✅"),
+            React.createElement("p", { className: "serif", style: { fontSize: 24, fontWeight: 800, color: "#fff", marginBottom: 12 } }, "Audit Request Received"),
+            React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 13, color: "rgba(255,255,255,0.55)", lineHeight: 1.8 } },
+              "Your AI visibility audit for ",
+              React.createElement("span", { style: { color: ORANGE } }, website),
+              " is being processed. Your full report will arrive at ",
+              React.createElement("span", { style: { color: "#fff" } }, email),
+              " within 24 hours."
+            ),
+            React.createElement("div", { style: { marginTop: 24, padding: "16px 20px", background: "rgba(255,107,43,0.08)", border: "1px solid rgba(255,107,43,0.2)" } },
+              React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 11, color: "rgba(255,255,255,0.4)" } },
+                "Want expert help implementing the findings? Book a free 20-minute consultation at ",
+                React.createElement("span", { style: { color: ORANGE } }, "brightbox.solutions/ai-audit")
+              )
+            )
+          ) :
+          React.createElement("div", { style: { background: SLATE_CARD, border: "1px solid " + SLATE_BDR, overflow: "hidden", marginBottom: 48 } },
+            React.createElement("div", { style: { background: ORANGE, padding: "20px 28px" } },
+              React.createElement("p", { className: "serif", style: { fontWeight: 800, fontSize: 18, color: "#fff", marginBottom: 4 } }, "Get Your Free AI Visibility Report"),
+              React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 11, color: "rgba(255,255,255,0.9)" } }, "No payment · No credit card · Report arrives by email within 24 hours")
+            ),
+            React.createElement("div", { style: { padding: 28 } },
+              React.createElement("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24, padding: "12px 16px", border: "1px solid rgba(255,107,43,0.25)", background: "rgba(255,107,43,0.05)" } },
+                React.createElement("div", null,
+                  React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 10, color: ORANGE, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2 } }, "Completely free — no strings attached"),
+                  React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 12, color: "rgba(255,255,255,0.5)" } }, "Full 13-point AI visibility audit of your roofing website")
+                ),
+                React.createElement("div", { style: { textAlign: "right" } },
+                  React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 11, color: "rgba(255,255,255,0.3)", textDecoration: "line-through" } }, "£149"),
+                  React.createElement("p", { className: "serif", style: { fontSize: 28, fontWeight: 900, color: ORANGE, lineHeight: 1 } }, "FREE")
+                )
+              ),
+              React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 12, marginBottom: 20 } },
+                React.createElement("input", { className: "field", type: "text", placeholder: "YOUR FULL NAME", value: name, onChange: e => setName(e.target.value) }),
+                React.createElement("input", { className: "field", type: "email", placeholder: "EMAIL ADDRESS (report delivered here)", value: email, onChange: e => setEmail(e.target.value) }),
+                React.createElement("input", { className: "field", type: "tel", placeholder: "PHONE NUMBER", value: phone, onChange: e => setPhone(e.target.value) }),
+                React.createElement("div", null,
+                  React.createElement("input", { className: "field", type: "text", placeholder: "YOUR WEBSITE URL (e.g. smithroofinglondon.co.uk)", value: website, onChange: e => setWebsite(e.target.value), style: { borderColor: website.length > 4 ? "rgba(255,107,43,0.6)" : "rgba(255,255,255,0.15)" } }),
+                  React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 10, color: "rgba(255,107,43,0.7)", marginTop: 5 } }, "⚡ We audit this URL across AI search engines and deliver your full report")
+                )
+              ),
+              React.createElement("button", { className: "btn-orange", disabled: !valid || status === "sending", onClick: handleSubmit },
+                status === "sending" ? "Processing your free audit..." : "Send Me My Free AI Visibility Report →"
+              ),
+              React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 10, color: "rgba(255,255,255,0.2)", textAlign: "center", marginTop: 12, lineHeight: 1.6 } },
+                "🔒 No payment required · No spam · Report delivered within 24 hours · No obligation whatsoever"
+              )
+            )
+          ),
 
-          <p style={{ fontSize: 15, color: "rgba(255,255,255,0.55)", lineHeight: 1.8, marginBottom: 32, fontFamily: "'Courier Prime',monospace" }}>
-            When a homeowner asks ChatGPT or Google AI <em style={{ color: "rgba(255,255,255,0.8)" }}>"find me a reliable roofer near me"</em> — does your business come up? Most roofers don't know. Our automated audit tells you in 24 hours.
-          </p>
+        // WHAT YOU GET
+        React.createElement("div", { style: { marginBottom: 48 } },
+          React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 9, letterSpacing: "0.18em", color: ORANGE, textTransform: "uppercase", marginBottom: 16 } }, "What's in your report"),
+          React.createElement("h2", { className: "serif", style: { fontSize: "clamp(22px,4vw,32px)", fontWeight: 800, color: "#fff", marginBottom: 28, lineHeight: 1.2 } }, "Everything you need to know about your AI search visibility"),
+          React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 12 } },
+            WHAT_YOU_GET.map(({ icon, title, desc }) =>
+              React.createElement("div", { key: title, style: { background: SLATE_CARD, border: "1px solid " + SLATE_BDR, padding: "20px 22px", display: "flex", gap: 16, alignItems: "flex-start" } },
+                React.createElement("span", { style: { fontSize: 22, flexShrink: 0 } }, icon),
+                React.createElement("div", null,
+                  React.createElement("p", { style: { fontFamily: "'Playfair Display',serif", fontWeight: 700, fontSize: 15, color: "#fff", marginBottom: 5 } }, title),
+                  React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 12, color: "rgba(255,255,255,0.45)", lineHeight: 1.65 } }, desc)
+                )
+              )
+            )
+          )
+        ),
 
-          {/* Social proof strip */}
-          <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 0 }}>
-            {["✅ 100% free", "✅ No sales call", "✅ Plain English report", "✅ 24-hour delivery", "✅ Keep the report forever"].map(t => (
-              <span key={t} style={{ fontFamily: "'Courier Prime',monospace", fontSize: 11, color: "rgba(255,255,255,0.5)", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", padding: "4px 10px" }}>{t}</span>
-            ))}
-          </div>
-        </div>
+        // WHY NOW
+        React.createElement("div", { style: { background: "linear-gradient(135deg, rgba(255,107,43,0.12) 0%, rgba(255,107,43,0.05) 100%)", border: "1px solid rgba(255,107,43,0.3)", padding: "28px 28px", marginBottom: 48 } },
+          React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 9, letterSpacing: "0.18em", color: ORANGE, textTransform: "uppercase", marginBottom: 12 } }, "Why this matters right now"),
+          React.createElement("h3", { className: "serif", style: { fontSize: 22, fontWeight: 800, color: "#fff", marginBottom: 14, lineHeight: 1.3 } }, "AI search is how homeowners find roofers in 2026. Most roofing businesses don't know they're invisible."),
+          React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 12, color: "rgba(255,255,255,0.55)", lineHeight: 1.8, marginBottom: 16 } }, "Traditional Google optimisation took years to become essential. AI search visibility is happening in months. The roofing businesses that check their visibility now and fix what's missing will dominate local AI search results before their competitors even know the game has changed."),
+          React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 12, color: "rgba(255,255,255,0.55)", lineHeight: 1.8 } }, "This audit is completely free. If the report shows issues you want fixed, we offer affordable fix packages — but there is absolutely no obligation to do anything beyond reading your report.")
+        ),
 
-        {/* ── STATS ── */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 48 }}>
-          {STATS.map(({ number, label }) => (
-            <div key={label} style={{ background: SLATE_CARD, border: `1px solid ${SLATE_BDR}`, padding: "20px 18px" }}>
-              <p className="serif" style={{ fontSize: 32, fontWeight: 900, color: ORANGE, marginBottom: 6, lineHeight: 1 }}>{number}</p>
-              <p style={{ fontFamily: "'Courier Prime',monospace", fontSize: 11, color: "rgba(255,255,255,0.45)", lineHeight: 1.55 }}>{label}</p>
-            </div>
-          ))}
-        </div>
+        // FAQ
+        React.createElement("div", { style: { marginBottom: 48 } },
+          React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 9, letterSpacing: "0.18em", color: ORANGE, textTransform: "uppercase", marginBottom: 20 } }, "Common questions"),
+          React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 8 } },
+            FAQS.map(({ q, a }, i) =>
+              React.createElement("div", { key: i, style: { background: SLATE_CARD, border: "1px solid " + (openFaq === i ? "rgba(255,107,43,0.4)" : SLATE_BDR), overflow: "hidden" } },
+                React.createElement("button", { onClick: () => setOpenFaq(openFaq === i ? null : i), style: { width: "100%", background: "transparent", border: "none", padding: "18px 22px", display: "flex", justifyContent: "space-between", alignItems: "center", cursor: "pointer", gap: 12 } },
+                  React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 13, color: "#fff", fontWeight: 700, textAlign: "left", lineHeight: 1.4 } }, q),
+                  React.createElement("span", { style: { color: ORANGE, fontSize: 18, flexShrink: 0, transition: "transform 0.2s", transform: openFaq === i ? "rotate(45deg)" : "rotate(0deg)" } }, "+")
+                ),
+                openFaq === i && React.createElement("div", { className: "fade-in", style: { padding: "0 22px 18px" } },
+                  React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 12, color: "rgba(255,255,255,0.5)", lineHeight: 1.8 } }, a)
+                )
+              )
+            )
+          )
+        ),
 
-        {/* ── FORM ── */}
-        {status === "done" ? (
-          <div className="fade-in" style={{ background: SLATE_CARD, border: `1px solid rgba(255,107,43,0.4)`, padding: "40px 32px", textAlign: "center", marginBottom: 48 }}>
-            <div style={{ fontSize: 48, marginBottom: 16 }}>✅</div>
-            <p className="serif" style={{ fontSize: 24, fontWeight: 800, color: "#fff", marginBottom: 12 }}>Audit Request Received</p>
-            <p style={{ fontFamily: "'Courier Prime',monospace", fontSize: 13, color: "rgba(255,255,255,0.55)", lineHeight: 1.8 }}>
-              Your AI visibility audit for <span style={{ color: ORANGE }}>{website}</span> is being processed.<br />
-              Your full report will arrive at <span style={{ color: "#fff" }}>{email}</span> within 24 hours.
-            </p>
-            <div style={{ marginTop: 24, padding: "16px 20px", background: "rgba(255,107,43,0.08)", border: `1px solid rgba(255,107,43,0.2)` }}>
-              <p style={{ fontFamily: "'Courier Prime',monospace", fontSize: 11, color: "rgba(255,255,255,0.4)" }}>
-                Want expert help implementing the findings? Book a free 20-minute consultation at{" "}
-                <span style={{ color: ORANGE }}>brightbox.solutions/ai-audit</span>
-              </p>
-            </div>
-          </div>
-        ) : (
-          <div style={{ background: SLATE_CARD, border: `1px solid ${SLATE_BDR}`, overflow: "hidden", marginBottom: 48 }}>
-            {/* Form header */}
-            <div style={{ background: ORANGE, padding: "20px 28px" }}>
-              <p className="serif" style={{ fontWeight: 800, fontSize: 18, color: "#fff", marginBottom: 4 }}>
-                Get Your Free AI Visibility Report
-              </p>
-              <p style={{ fontFamily: "'Courier Prime',monospace", fontSize: 11, color: "rgba(255,255,255,0.9)" }}>
-                No payment · No credit card · Report arrives by email within 24 hours
-              </p>
-            </div>
-
-            <div style={{ padding: 28 }}>
-              {/* Free badge */}
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24, padding: "12px 16px", border: `1px solid rgba(255,107,43,0.25)`, background: "rgba(255,107,43,0.05)" }}>
-                <div>
-                  <p style={{ fontFamily: "'Courier Prime',monospace", fontSize: 10, color: ORANGE, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 2 }}>Completely free — no strings attached</p>
-                  <p style={{ fontFamily: "'Courier Prime',monospace", fontSize: 12, color: "rgba(255,255,255,0.5)" }}>Full 13-point AI visibility audit of your roofing website</p>
-                </div>
-                <div style={{ textAlign: "right" }}>
-                  <p style={{ fontFamily: "'Courier Prime',monospace", fontSize: 11, color: "rgba(255,255,255,0.3)", textDecoration: "line-through" }}>£149</p>
-                  <p className="serif" style={{ fontSize: 28, fontWeight: 900, color: ORANGE, lineHeight: 1 }}>FREE</p>
-                </div>
-              </div>
-
-              <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 20 }}>
-                <input className="field" type="text" placeholder="YOUR FULL NAME" value={name} onChange={e => setName(e.target.value)} />
-                <input className="field" type="email" placeholder="EMAIL ADDRESS (report delivered here)" value={email} onChange={e => setEmail(e.target.value)} />
-                <input className="field" type="tel" placeholder="PHONE NUMBER" value={phone} onChange={e => setPhone(e.target.value)} />
-                <div>
-                  <input className="field" type="text" placeholder="YOUR WEBSITE URL (e.g. smithroofinglondon.co.uk)" value={website} onChange={e => setWebsite(e.target.value)} style={{ borderColor: website.length > 4 ? `rgba(255,107,43,0.6)` : "rgba(255,255,255,0.15)" }} />
-                  <p style={{ fontFamily: "'Courier Prime',monospace", fontSize: 10, color: "rgba(255,107,43,0.7)", marginTop: 5 }}>
-                    ⚡ We audit this URL across AI search engines and deliver your full report
-                  </p>
-                </div>
-              </div>
-
-              <button className="btn-orange" disabled={!valid || status === "sending"} onClick={handleSubmit}>
-                {status === "sending" ? "Processing your free audit..." : "Send Me My Free AI Visibility Report →"}
-              </button>
-
-              <p style={{ fontFamily: "'Courier Prime',monospace", fontSize: 10, color: "rgba(255,255,255,0.2)", textAlign: "center", marginTop: 12, lineHeight: 1.6 }}>
-                🔒 No payment required · No spam · Report delivered within 24 hours · No obligation whatsoever
-              </p>
-            </div>
-          </div>
-        )}
-
-        {/* ── WHAT YOU GET ── */}
-        <div style={{ marginBottom: 48 }}>
-          <p style={{ fontFamily: "'Courier Prime',monospace", fontSize: 9, letterSpacing: "0.18em", color: ORANGE, textTransform: "uppercase", marginBottom: 16 }}>What's in your report</p>
-          <h2 className="serif" style={{ fontSize: "clamp(22px,4vw,32px)", fontWeight: 800, color: "#fff", marginBottom: 28, lineHeight: 1.2 }}>
-            Everything you need to know about your AI search visibility
-          </h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            {WHAT_YOU_GET.map(({ icon, title, desc }) => (
-              <div key={title} style={{ background: SLATE_CARD, border: `1px solid ${SLATE_BDR}`, padding: "20px 22px", display: "flex", gap: 16, alignItems: "flex-start" }}>
-                <span style={{ fontSize: 22, flexShrink: 0 }}>{icon}</span>
-                <div>
-                  <p style={{ fontFamily: "'Playfair Display',serif", fontWeight: 700, fontSize: 15, color: "#fff", marginBottom: 5 }}>{title}</p>
-                  <p style={{ fontFamily: "'Courier Prime',monospace", fontSize: 12, color: "rgba(255,255,255,0.45)", lineHeight: 1.65 }}>{desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ── WHY NOW ── */}
-        <div style={{ background: `linear-gradient(135deg, rgba(255,107,43,0.12) 0%, rgba(255,107,43,0.05) 100%)`, border: `1px solid rgba(255,107,43,0.3)`, padding: "28px 28px", marginBottom: 48 }}>
-          <p style={{ fontFamily: "'Courier Prime',monospace", fontSize: 9, letterSpacing: "0.18em", color: ORANGE, textTransform: "uppercase", marginBottom: 12 }}>Why this matters right now</p>
-          <h3 className="serif" style={{ fontSize: 22, fontWeight: 800, color: "#fff", marginBottom: 14, lineHeight: 1.3 }}>
-            AI search is how homeowners find roofers in 2026. Most roofing businesses don't know they're invisible.
-          </h3>
-          <p style={{ fontFamily: "'Courier Prime',monospace", fontSize: 12, color: "rgba(255,255,255,0.55)", lineHeight: 1.8, marginBottom: 16 }}>
-            Traditional Google optimisation took years to become essential. AI search visibility is happening in months. The roofing businesses that check their visibility now and fix what's missing will dominate local AI search results before their competitors even know the game has changed.
-          </p>
-          <p style={{ fontFamily: "'Courier Prime',monospace", fontSize: 12, color: "rgba(255,255,255,0.55)", lineHeight: 1.8 }}>
-            This audit is completely free. If the report shows issues you want fixed, we offer affordable fix packages — but there is absolutely no obligation to do anything beyond reading your report.
-          </p>
-        </div>
-
-        {/* ── FAQ ── */}
-        <div style={{ marginBottom: 48 }}>
-          <p style={{ fontFamily: "'Courier Prime',monospace", fontSize: 9, letterSpacing: "0.18em", color: ORANGE, textTransform: "uppercase", marginBottom: 20 }}>Common questions</p>
-          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            {FAQS.map(({ q, a }, i) => (
-              <div key={i} style={{ background: SLATE_CARD, border: `1px solid ${openFaq === i ? "rgba(255,107,43,0.4)" : SLATE_BDR}`, overflow: "hidden", transition: "border-color 0.2s" }}>
-                <button onClick={() => setOpenFaq(openFaq === i ? null : i)} style={{ width: "100%", background: "transparent", border: "none", padding: "18px 22px", display: "flex", justifyContent: "space-between", alignItems: "center", cursor: "pointer", gap: 12 }}>
-                  <p style={{ fontFamily: "'Courier Prime',monospace", fontSize: 13, color: "#fff", fontWeight: 700, textAlign: "left", lineHeight: 1.4 }}>{q}</p>
-                  <span style={{ color: ORANGE, fontSize: 18, flexShrink: 0, transition: "transform 0.2s", transform: openFaq === i ? "rotate(45deg)" : "rotate(0deg)" }}>+</span>
-                </button>
-                {openFaq === i && (
-                  <div className="fade-in" style={{ padding: "0 22px 18px" }}>
-                    <p style={{ fontFamily: "'Courier Prime',monospace", fontSize: 12, color: "rgba(255,255,255,0.5)", lineHeight: 1.8 }}>{a}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ── BOTTOM CTA ── */}
-        <div style={{ background: SLATE_CARD, border: `1px solid ${SLATE_BDR}`, padding: "32px 28px", textAlign: "center" }}>
-          <p className="serif" style={{ fontSize: 24, fontWeight: 800, color: "#fff", marginBottom: 10 }}>Ready to find out where you stand?</p>
-          <p style={{ fontFamily: "'Courier Prime',monospace", fontSize: 12, color: "rgba(255,255,255,0.4)", marginBottom: 24, lineHeight: 1.7 }}>
-            Your competitors are either already visible in AI search — or they're not. Either way, you need to know. And it won't cost you a penny to find out.
-          </p>
-          <button className="btn-orange" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} style={{ maxWidth: 420, margin: "0 auto" }}>
-            Get My Free AI Visibility Report →
-          </button>
-          <p style={{ fontFamily: "'Courier Prime',monospace", fontSize: 10, color: "rgba(255,255,255,0.2)", marginTop: 12 }}>
-            Powered by Bright Box Solutions · ISO AI Management Practitioners
-          </p>
-        </div>
-
-      </div>
-    </div>
+        // BOTTOM CTA
+        React.createElement("div", { style: { background: SLATE_CARD, border: "1px solid " + SLATE_BDR, padding: "32px 28px", textAlign: "center" } },
+          React.createElement("p", { className: "serif", style: { fontSize: 24, fontWeight: 800, color: "#fff", marginBottom: 10 } }, "Ready to find out where you stand?"),
+          React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 12, color: "rgba(255,255,255,0.4)", marginBottom: 24, lineHeight: 1.7 } }, "Your competitors are either already visible in AI search — or they're not. Either way, you need to know. And it won't cost you a penny to find out."),
+          React.createElement("button", { className: "btn-orange", onClick: () => window.scrollTo({ top: 0, behavior: "smooth" }), style: { maxWidth: 420, margin: "0 auto" } }, "Get My Free AI Visibility Report →"),
+          React.createElement("p", { style: { fontFamily: "'Courier Prime',monospace", fontSize: 10, color: "rgba(255,255,255,0.2)", marginTop: 12 } }, "Powered by Bright Box Solutions · ISO AI Management Practitioners")
+        )
+      )
+    )
   );
 }
-    ReactDOM.render(React.createElement(App), document.getElementById('root'));
+
+ReactDOM.render(React.createElement(App), document.getElementById('root'));
+
   </script>
 </body>
 </html>
