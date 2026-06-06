@@ -84,12 +84,17 @@ function App() {
     if (!valid) return;
     setStatus("sending");
     try {
-      await fetch(WEBHOOK, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: website, email, name, phone, route: "Roofer Geo Audit — Free" })
-      });
+     const formData = new FormData();
+formData.append("url", website);
+formData.append("email", email);
+formData.append("name", name);
+formData.append("phone", phone);
+formData.append("route", "Roofer Geo Audit — Free");
+await fetch(WEBHOOK, {
+  method: "POST",
+  mode: "no-cors",
+  body: formData
+});
     } catch(e) {}
     setStatus("done");
   };
